@@ -56,3 +56,25 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.url) : new URL('/og/default-og
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={imageUrl} />
+
+<!-- Prevent OpenAI training -->
+<meta name="openai-domain-verification" content="dv-none" />
+<meta name="openai:no-crawl" content="true" />
+
+<!-- Prevent Google AI training -->
+<meta name="google-site-verification" content="no-ai-training" />
+<meta name="googlebot" content="noai, noimageai" />
+
+<!-- Prevent other AI training -->
+<meta name="robots" content="noai, noimageai" />
+<meta name="ai-content-declaration" content="no-ai-training" />
+
+<!-- Anthropic Claude protection -->
+<meta name="claude-ai" content="no-scrape" />
+
+<!-- General AI training prevention -->
+<meta name="no-ai-training" content="true" />
+<meta name="ai-generated" content="false" />
+
+<!-- Additional crawler protection -->
+<meta http-equiv="X-Robots-Tag" content="noai, noimageai, nosnippet" />
