@@ -1,0 +1,110 @@
+# .htaccess file for blocking AI crawlers and scrapers
+# as reference
+
+# Block known AI crawlers by User-Agent
+RewriteEngine On
+
+# OpenAI crawlers
+RewriteCond %{HTTP_USER_AGENT} ChatGPT-User [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} GPTBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} OpenAI-SearchBot [NC]
+RewriteRule .* - [F,L]
+
+# Anthropic crawlers
+RewriteCond %{HTTP_USER_AGENT} Claude-Web [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} ClaudeBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} anthropic-ai [NC]
+RewriteRule .* - [F,L]
+
+# Google AI crawlers
+RewriteCond %{HTTP_USER_AGENT} Google-Extended [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} GoogleOther [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Bard [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Gemini [NC]
+RewriteRule .* - [F,L]
+
+# Meta AI crawlers
+RewriteCond %{HTTP_USER_AGENT} Meta-ExternalAgent [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Meta-ExternalFetcher [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} FacebookBot [NC]
+RewriteRule .* - [F,L]
+
+# Other AI training crawlers
+RewriteCond %{HTTP_USER_AGENT} CCBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} "Common Crawl" [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} PerplexityBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} YouBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Diffbot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} AI2Bot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} iaskspider [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} img2dataset [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} omgili [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Bytespider [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} Applebot-Extended [NC]
+RewriteRule .* - [F,L]
+
+# Block aggressive scrapers
+RewriteCond %{HTTP_USER_AGENT} SemrushBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} AhrefsBot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} MJ12bot [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_USER_AGENT} DotBot [NC]
+RewriteRule .* - [F,L]
+
+# Security headers to prevent AI training
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noai, noimageai, nosnippet"
+    Header set AI-Content-Declaration "no-ai-training"
+    Header set OpenAI-Domain-Verification "dv-none"
+</IfModule>
+
+# Prevent hotlinking of images and content
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?martinsgmx\.github\.io [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\. [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?bing\. [NC]
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?duckduckgo\. [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp|svg|css|js|pdf)$ - [F,L]
