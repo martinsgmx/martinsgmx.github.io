@@ -31,10 +31,11 @@ jobs:
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
         id: pnpm-cache
+        continue-on-error: true
       - uses: actions/cache@v4
         name: Setup pnpm cache
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH || '~/.local/share/pnpm/store' }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
