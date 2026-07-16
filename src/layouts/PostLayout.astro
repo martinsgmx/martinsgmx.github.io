@@ -75,6 +75,114 @@ const ogImage = `/open-graph/${postSlug}.png`
   </div>
 </BaseLayout>
 
+<div id="mermaid-viewer">
+  <div id="mermaid-viewer-content"></div>
+</div>
+
+<script is:inline>
+  ;(function () {
+    const expandIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="14" height="14" fill="currentColor"><path d="M1.5 1h4a.5.5 0 0 1 0 1H2.707l3.147 3.146a.5.5 0 1 1-.708.708L2 2.707V5.5a.5.5 0 0 1-1 0v-4a.5.5 0 0 1 .5-.5Zm13 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V2.707l-3.146 3.147a.5.5 0 1 1-.708-.708L13.293 2H10.5a.5.5 0 0 1 0-1h4ZM1 14.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H2.707l3.147 3.146a.5.5 0 0 1-.708.708L2 14.707V17.5a.5.5 0 0 1-1 0v-3Zm14.854-10.354a.5.5 0 0 0-.708 0L12 5.793l-3.146-3.147a.5.5 0 1 0-.708.708L11.293 6.5 8.146 9.646a.5.5 0 1 0 .708.708L12 7.207l3.146 3.147a.5.5 0 0 0 .708-.708L12.707 6.5l3.147-3.146a.5.5 0 0 0 0-.708Z"/></svg>'
+
+    function addExpandButtons() {
+      document.querySelectorAll('pre.mermaid[data-processed]').forEach((pre) => {
+        if (pre.querySelector('.mermaid-expand-btn')) return
+        const btn = document.createElement('button')
+        btn.className = 'mermaid-expand-btn'
+        btn.setAttribute('aria-label', 'Expand diagram')
+        btn.innerHTML = expandIcon
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation()
+          openMermaidViewer(pre)
+        })
+        pre.appendChild(btn)
+      })
+    }
+
+    function openMermaidViewer(pre) {
+      const viewer = document.getElementById('mermaid-viewer')
+      const content = document.getElementById('mermaid-viewer-content')
+      if (!viewer || !content) return
+
+      const svg = pre.querySelector('svg')
+      if (!svg) return
+
+      const clone = svg.cloneNode(true)
+      clone.removeAttribute('width')
+      clone.removeAttribute('height')
+      clone.style.maxWidth = '90vw'
+      clone.style.maxHeight = '85vh'
+
+      content.innerHTML = ''
+      content.appendChild(clone)
+
+      viewer.classList.add('active')
+      document.body.classList.add('mermaid-viewer-open')
+    }
+
+    function closeMermaidViewer() {
+      const viewer = document.getElementById('mermaid-viewer')
+      if (!viewer) return
+      viewer.classList.remove('active')
+      document.body.classList.remove('mermaid-viewer-open')
+    }
+
+    function getMermaidTheme() {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'default'
+    }
+
+    async function rerenderMermaid() {
+      const mermaid = window.mermaid
+      if (!mermaid) return
+
+      document.querySelectorAll('pre.mermaid[data-processed]').forEach((pre) => {
+        pre.removeAttribute('data-processed')
+      })
+
+      mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme(), logLevel: 'error' })
+
+      const diagrams = document.querySelectorAll('pre.mermaid')
+      for (const diagram of diagrams) {
+        if (diagram.hasAttribute('data-processed')) continue
+        const source = diagram.getAttribute('data-diagram') || diagram.textContent || ''
+        const id = 'mermaid-' + Math.random().toString(36).slice(2, 11)
+        try {
+          const { svg } = await mermaid.render(id, source)
+          diagram.innerHTML = svg
+          diagram.setAttribute('data-processed', 'true')
+        } catch (err) {
+          console.error('[mermaid]', err)
+        }
+      }
+      addExpandButtons()
+    }
+
+    let themeObserver = null
+
+    function observeThemeChanges() {
+      themeObserver?.disconnect()
+      themeObserver = new MutationObserver(() => {
+        closeMermaidViewer()
+        rerenderMermaid()
+      })
+      themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+      })
+    }
+
+    document.addEventListener('astro:page-load', () => {
+      setTimeout(() => addExpandButtons(), 100)
+      observeThemeChanges()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMermaidViewer()
+    })
+
+    document.getElementById('mermaid-viewer')?.addEventListener('click', closeMermaidViewer)
+  })()
+</script>
+
 <style>
   .post-container {
     display: flex;

@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import playformInline from '@playform/inline'
+import mermaid from 'astro-mermaid'
 import remarkMath from 'remark-math'
 import remarkDirective from 'remark-directive'
 import rehypeKatex from 'rehype-katex'
@@ -34,6 +35,7 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex, rehypeCleanup, rehypeImageProcessor, rehypeCopyCode]
   },
   integrations: [
+    mermaid({ autoTheme: false, theme: 'default' }),
     playformInline({
       Exclude: [(file) => file.toLowerCase().includes('katex')]
     }),
