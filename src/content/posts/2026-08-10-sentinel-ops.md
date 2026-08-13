@@ -10,21 +10,26 @@ head:
       content: ./_assets/2026-08-10-sentinel-ops-mcp/header.png
 ---
 
+> You can access to full code from: [martinsgmx/sentinel-ops.git]
+
+> For this PoC, the credit card transactions dataset are taken from: [kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset]
+
 ## Motivation
 
-When AI starts has a relevant participation inside any organization, the main issue it's create some really useful tools.
-Also, a organization has a lot information that must be well structure and retrieve under easy ways.
+When AI starts to play an relevant role inside any organization, the main challenge is creating some really useful tools.
+Also, an organization has a lot of information that must be well-structured and retrieve easily.
 
-MCP's can be helpful in some scenarios.
+MCPs can be helpful in some scenarios.
 
-Sentinel Ops (MCP + ML) it's an PoC that can handle a some business rules, send alerts and create profiles. It's an combination
-between MCP, Machine Learning and visualization actions (live monitoring).
+Sentinel Ops (MCP + ML) it's a PoC that can handle business rules, send alerts and create profiles. It's a combination
+between MCP, Machine Learning and visualization/actions (live monitoring).
 
-In any business that involves money or resources the hard decisions must be taken with a lot of information, the risk must be minimum.
+In any business that involves money or valuable resources, critical decisions must based on as much relevant information as possible.
+The goal is to minimized risk while making those decisions faster and more effectively.
 
 ## Architecture overview
 
-> NOTE: This is a first iteration, maybe contains some errors.
+> NOTE: As a first iteration, this version maybe contains some errors.
 
 The architecture, at this time, it's a little simple: train with transactions -> creation model -> run model -> audit transactions -> trigger an alert -> MCP works
 
@@ -73,6 +78,8 @@ flowchart LR
 
 ## How alert system works
 
+This is a draft of how the alert system works. It will be complemented with MCP, AI agents, and other components.
+
 ```mermaid
 flowchart TD
 TX[Transaction] --> ML{ML score}
@@ -88,9 +95,7 @@ SEV --> PG[(PostgreSQL)]
 PG --> SENT[Sentinel Reviews]
 ```
 
-In the remain iterations, some issues must be covered, also, the dashboard must be integrate some AI chat that
-can handle prompts, generate reports and so on.
-
-You can access to full code from this repo: [martinsgmx/sentinel-ops.git]
+In the remaining iterations, several issues need to be addressed. The dashboard should also integrate an AI chat interface capable of handling prompts, generating reports, and more.
 
 [martinsgmx/sentinel-ops.git]: https://github.com/martinsgmx/sentinel-ops
+[kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset]: https://www.kaggle.com/datasets/priyamchoksi/credit-card-transactions-dataset
