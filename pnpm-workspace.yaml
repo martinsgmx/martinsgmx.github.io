@@ -5,6 +5,7 @@ overrides:
   deepmerge-ts: ^8.0.0
   js-yaml: ^4.3.2
   sharp: ^0.35.4
+  toml: ^4.2.0
 
 allowBuilds:
   '@parcel/watcher': true

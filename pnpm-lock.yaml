@@ -8,6 +8,7 @@ overrides:
   deepmerge-ts: ^8.0.0
   js-yaml: ^4.3.2
   sharp: ^0.35.4
+  toml: ^4.2.0
 
 importers:
 
@@ -4654,8 +4655,9 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  toml@3.0.0:
-    resolution: {integrity: sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==}
+  toml@4.3.0:
+    resolution: {integrity: sha512-lVb8X9BsPVuH0M4BKeS91tXAmJvCjQ5UIyAbQFaxkKGyUFK2RPkhwaFSQH8vbpl1d23eu/IBH+dwVMHWaq9A5A==}
+    engines: {node: '>=20'}
 
   tomlify-j0.4@3.0.0:
     resolution: {integrity: sha512-2Ulkc8T7mXJ2l0W476YC/A209PR38Nw8PuaCNtk9uI3t1zzFdGQeWYGQvmj2PZkVvRC/Yoi4xQKMRnWc/N29tQ==}
@@ -6125,7 +6127,7 @@ snapshots:
       resolve: 2.0.0-next.7
       semver: 7.8.5
       tmp-promise: 3.0.3
-      toml: 3.0.0
+      toml: 4.3.0
       unixify: 1.0.0
       urlpattern-polyfill: 8.0.2
       yargs: 17.7.3
@@ -10759,7 +10761,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  toml@3.0.0: {}
+  toml@4.3.0: {}
 
   tomlify-j0.4@3.0.0: {}
 
