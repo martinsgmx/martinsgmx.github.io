@@ -45,9 +45,9 @@ async function createOGImageRoute() {
   })
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(context) {
   const ogRoute = await createOGImageRoute()
-  return ogRoute.getStaticPaths()
+  return ogRoute.getStaticPaths(context)
 }
 
 export const GET = async (context) => {
