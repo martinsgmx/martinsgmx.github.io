@@ -1,6 +1,7 @@
 ---
 title: 'Sentinel Ops (MCP + ML)'
 pubDate: 2026-08-10 00:15:00 -0600
+aiAssisted: Partial
 head:
   - - meta
     - name: description

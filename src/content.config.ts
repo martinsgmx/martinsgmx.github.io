@@ -11,7 +11,8 @@ const posts = defineCollection({
       // Transform string to Date object
       pubDate: z.coerce.date(),
       image: z.string().optional(),
-      language: z.string().optional().default('English')
+      language: z.enum(['English', 'Spanish']).optional().default('English'),
+      aiAssisted: z.enum(['Yes', 'No', 'Partial']).optional().default('No')
     })
 })
 
