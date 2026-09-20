@@ -11,8 +11,9 @@ export interface PostLayoutProps {
   pubDate: Date
   image?: string
   readingTime?: ReadingTime
-  toc?: TOCItem[],
+  toc?: TOCItem[]
   language?: string
+  aiAssisted?: 'Yes' | 'No' | 'Partial'
 }
 
 // Transition props interface
