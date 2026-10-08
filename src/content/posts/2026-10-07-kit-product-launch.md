@@ -14,19 +14,21 @@ head:
 
 ## TL;DR
 
+> _for lazy devs, just like me..._
+
 Ve directo a la sección: [Prompt](#prompt)
 
 ## Motivación
 
 En ocasiones, cuando construimos algo, personal o no, tenemos esa innata necesidad de mostrarselo al mundo. Cuando se está en el
-mundo del desarrollo ese sentimiento está presente, sin embargo el cómo hacerlo tiende a estar ausente, softkills le llaman.
+mundo del desarrollo ese sentimiento está presente, sin embargo el cómo hacerlo tiende a estar ausente, `softkills` le llaman.
 
-Sin embargo, con el arribo de cientos de modelos de inteligencia artificial, esa tarea puede ser optimizada o reeemplazada por un
+Sin embargo, con el arribo de cientos de modelos de inteligencia artificial, esa tarea puede ser optimizada o reemplazada por un
 sistema de inferencia.
 
-El camino para llegar a crear un video de presentación actualmente es facilisímo.
-
 > "I created the _OASIS_ because I never felt at home in the real world." - Ready Player One, _James Halliday_, 2011.
+
+El camino para llegar a crear un video de presentación actualmente es facilisímo.
 
 # Idea principal
 
@@ -43,9 +45,9 @@ ffmpeg --version
 volta --version
 ```
 
-> `ffmpeg` es una herramienta para manipular video, Claude la usara para renderizar, sobreponer audio, o lo que sea necesario.
+> `ffmpeg` es una herramienta para manipular video, Claude la usará para renderizar, sobreponer audio, o lo que sea necesario.
 
-> `volta` es un gestor de versiones de NodeJS, simple, y poderoso, ayuda en temas de compatibiliad, y que la solución sea simple y rápida.
+> `volta` es un gestor de versiones de **NodeJS**, simple, y poderoso, ayuda en temas de compatibiliad, y que la solución sea simple y rápida.
 
 ## Objectivo
 
@@ -59,7 +61,7 @@ Para este caso, usaremos de ejemplo [Sterling] un proyecto OSS creado por [LaMat
 
 Ahora, ya tenemos mentalizado nuestro objectivo, es momento de comenzar nuestro prompt.
 
-Antes de esto, escoge un nombre genérico para proyecto, en este caso lo llamaré `mediakit`, crea una carpeta e inicializa un proyecto `node`:
+Antes de esto, escoge un nombre genérico para el proyecto, en este caso lo llamaré `mediakit`, crea una carpeta e inicializa un proyecto `node`:
 
 ```bash
 # crear carpeta
@@ -71,8 +73,8 @@ pnpm init
 
 Abrimos, Claude.
 
-En este punto, hay dos manera de trabajar: primera, ingresas el prompt directamente en Claude, o utilizas un archivo llamado `PROMPT.md` para tener un versionamiento de lo que solicitas, en este caso
-al ser un proyecto totalmente reutilizable, y mejorable, te recomiendo utilizar el segundo método.
+En este punto, hay dos manera de trabajar: _primera_, ingresas el prompt directamente en Claude, o _utilizas_ un archivo llamado `PROMPT.md` para tener un versionamiento de lo que solicitas, en este caso
+al ser un proyecto totalmente reutilizable y mejorable, te recomiendo utilizar el segundo método.
 
 Yo usaré el método de archivo separado, para tener una mejor visibilidad en este post.
 
@@ -81,6 +83,13 @@ Yo usaré el método de archivo separado, para tener una mejor visibilidad en es
 > En la vida, como en el arte, la experiencia propia es la llave de la especialidad.
 
 Ahora, toma nota, esto ME SIRVE a mí, iterar, mejorar, depende de cada persona.
+
+> Claude debe estar utilizando de preferencia _Opus 5.5_, y como fallback _Sonnet 5.5_
+
+Modifica las lineas después de `<!-- LINKS DE REFENCIAS -->` dentro del prompt. Son variables que debes modificar dependiendo el scope del
+kit que quieres generar.
+
+También, puedes modificar la parte de los formatos requeridos, puedes utilizar como referencia la propia tabla presentada al final del `prompt`.
 
 ```markdown
 Requiero generar un video/media para presentar un producto, el producto es [URL_PRODUCTO]
@@ -143,7 +152,7 @@ Usa como referencia la tabla Video dimensions
 
 ## Toolchain
 
-ffmpeg, vota, node, pnpm
+ffmpeg, volta, node, pnpm
 ```
 
 En Claude:
@@ -154,7 +163,7 @@ Sigue las instruciones en @PROMPT.md
 
 > La magia ocurre.
 
-Una vez que finalice, dentro de la carpeta output, encontraremos una estructura parecida a:
+Una vez que finalice, dentro de la carpeta `output`, encontraremos una estructura parecida a:
 
 ```bash
 output
@@ -178,7 +187,7 @@ En este punto, el prompt es básico, pero puedes agregar secciones de duración,
 
 ```bash
 Intenta que el video siga algunas cuestiones sobre la retención de atención de los usuarios:
-- Durante los primeros 6 segundos, asegurate que el video sea cautivador.
+- Durante los primeros 6 segundos, asegúrate que el video sea cautivador.
 - El video no debe exceder los 45 segundos, sé consistente.
 ```
 
