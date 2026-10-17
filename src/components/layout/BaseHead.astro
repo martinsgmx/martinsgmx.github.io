@@ -9,6 +9,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title, description, ogImage } = Astro.props as BaseHeadProps
 const imageUrl = ogImage ? new URL(ogImage, Astro.url) : new URL('/og/default-og.png', Astro.url)
+const imageAlt = `${title || themeConfig.site.title} - ${themeConfig.site.title} preview image`
 ---
 
 <!-- Global Metadata -->
@@ -49,6 +50,7 @@ const imageUrl = ogImage ? new URL(ogImage, Astro.url) : new URL('/og/default-og
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

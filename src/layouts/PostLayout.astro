@@ -18,11 +18,14 @@ import CopyCode from '@/components/ui/CopyCode.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
 
 import { themeConfig } from '@/config'
+import { getCustomOgImage } from '@/utils/og-image'
 
-const { title, pubDate, readingTime, toc, language, aiAssisted } = Astro.props as PostLayoutProps
+const { title, pubDate, readingTime, toc, language, aiAssisted, ogImage } =
+  Astro.props as PostLayoutProps
 
 const postSlug = Astro.url.pathname.split('/').filter(Boolean).pop() || ''
-const ogImage = `/open-graph/${postSlug}.png`
+const resolvedOgImage =
+  ogImage ?? getCustomOgImage(postSlug) ?? `/open-graph/${postSlug}.png`
 ---
 
 <BaseLayout
@@ -33,7 +36,7 @@ const ogImage = `/open-graph/${postSlug}.png`
   <BaseHead
     title={`${title} · ${themeConfig.site.title}`}
     description={themeConfig.site.description}
-    ogImage={ogImage}
+    ogImage={resolvedOgImage}
     slot="head"
   />
   <div class="post-container">

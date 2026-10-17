@@ -1,13 +1,6 @@
 ---
-title: "Setting up flutter environment in Linux"
+title: 'Setting up flutter environment in Linux'
 pubDate: 2022-03-19 00:00:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Setting up flutter environment
-    - - meta
-      - property: og:image
-        content: ./_assets/2022-03-19-flutter-linux/header.png
 ---
 
 If you try to set up an Flutter environment, you must read in the [official documentation](https://docs.flutter.dev/get-started/install/linux#install-android-studio) suggest that get the best development experience it's recommended install Android Studio.

@@ -1,13 +1,6 @@
 ---
-title: "Arduino CLI with ARM host (RPi)"
+title: 'Arduino CLI with ARM host (RPi)'
 pubDate: 2018-08-25 00:00:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Arcuino CLI Raspberry installation
-    - - meta
-      - property: og:image
-        content: ./_assets/2018-08-25-arduino-cli-arm-rpi/header.png
 ---
 
 Basically this the Arduino toolchains. With this tools you avoid write the Makefile and build with Arduino IDE. With this solution you can edit your Arduino Sketch (\*.ino) with any text editor, vim, nano or whatever you use, and later compiler and deploy it. All over from your terminal!
@@ -131,7 +124,7 @@ hst@rpi:~ $ sudo arduino-cli upload -p /dev/ttyUSB0 --fqbn arduino:avr:uno ~/Ard
 
 It's all! Your Arduino is ready and execute your code!
 
-![Blink UNO board](./_assets/2018-08-25-arduino-cli-arm-rpi/blink_uno.gif "Arduino UNO board")
+![Blink UNO board](./_assets/2018-08-25-arduino-cli-arm-rpi/blink_uno.gif 'Arduino UNO board')
 
 Open minicom and listen the serial port with the baud 115200:
 

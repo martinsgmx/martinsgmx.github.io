@@ -1,11 +1,16 @@
 import { getCollection } from 'astro:content'
 import { OGImageRoute } from 'astro-og-canvas'
 import { themeConfig } from '../../config'
+import { getCustomOgImage } from '../../utils/og-image'
 
 async function createOGImageRoute() {
   const collectionEntries = await getCollection('posts')
+  // Posts with their own `header.png` asset are served that image instead of a
+  // generated one, so skip them here to avoid rendering unused OG files.
   const pages = Object.fromEntries(
-    collectionEntries.map(({ id, data }) => [id.replace(/\.(md|mdx)$/, ''), data])
+    collectionEntries
+      .filter(({ id }) => !getCustomOgImage(id))
+      .map(({ id, data }) => [id.replace(/\.(md|mdx)$/, ''), data])
   )
   return OGImageRoute({
     param: 'route',
@@ -39,7 +44,7 @@ async function createOGImageRoute() {
       },
       fonts: [
         'https://cdn.jsdelivr.net/npm/font-pingfang-sc-font-weight-improved@latest/PingFangSC-Medium.woff2',
-        'https://cdn.jsdelivr.net/npm/font-pingfang-sc-font-weight-improved@latest/PingFangSC-Semibold.woff2',
+        'https://cdn.jsdelivr.net/npm/font-pingfang-sc-font-weight-improved@latest/PingFangSC-Semibold.woff2'
       ]
     })
   })

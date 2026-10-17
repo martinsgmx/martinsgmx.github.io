@@ -2,13 +2,6 @@
 title: 'Installation methods: Agentic mode'
 pubDate: 2026-09-04 00:15:00 -0600
 aiAssisted: Partial
-head:
-  - - meta
-    - name: description
-      content: Installation methods Agentic mode
-  - - meta
-    - property: og:image
-      content: ./_assets/2026-09-04-installation-methods-agentic-mode/header.png
 ---
 
 > _Any installation with Agentic approach_ it's now a mandatory requirement, you can't ignore it.

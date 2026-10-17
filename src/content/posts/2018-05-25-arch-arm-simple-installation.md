@@ -1,13 +1,6 @@
 ---
-title: "Arch-ARM: Simple installation"
+title: 'Arch-ARM: Simple installation'
 pubDate: 2018-05-25 00:15:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Arch ARM linux installation
-    - - meta
-      - property: og:image
-        content: ./_assets/img/2018-05-25-arch-arm-simple-installation/header.png
 ---
 
 > This guide is based on Arch Linux x64 and Raspberry Pi 2 B
@@ -113,10 +106,11 @@ Writing superblocks and filesystem accounting information: done.
 Now, the SD is ready to install Arch-ARM. But, before that, we need create two temporally folders ./tmp/root/ and ./tmp/boot/ on our host. After that, we need mount the SD partitions in them.
 
 |Directories|
-|Host| |SD-Card|
-|:-----:|:-:|:-------:|
-|./tmp/boot/|<->|/dev/sdb1|
-|./tmp/root/|<->|/dev/sdb2|
+
+|    Host     |     |  SD-Card  |
+| :---------: | :-: | :-------: |
+| ./tmp/boot/ | <-> | /dev/sdb1 |
+| ./tmp/root/ | <-> | /dev/sdb2 |
 
 ```bash
 [root@arch ~]: mkdir ./tmp/boot/

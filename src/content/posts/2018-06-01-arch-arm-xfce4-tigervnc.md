@@ -1,13 +1,6 @@
 ---
-title: "Arch-ARM: xfce4 and x11vnc installation"
+title: 'Arch-ARM: xfce4 and x11vnc installation'
 pubDate: 2018-06-01 00:18:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Arch ARM xfce installation
-    - - meta
-      - property: og:image
-        content: ./_assets/img/2018-06-01-arch-arm-xfce4-tigervnc/header.png
 ---
 
 Before install [XFCE] and [TigerVNC], I recommend read both config post and put attention on Installation and Configuration sections. This installation is only thought VNC connection, without HDMI display.
@@ -183,13 +176,13 @@ Log file is /home/alarm/.vnc/alarmpi:1.log
 
 > VNCviewer side:
 
-![VNCviewer Windows](./_assets/2018-06-01-arch-arm-xfce4-tigervnc/001-vnc-viewer.png "VNC Viewer")
+![VNCviewer Windows](./_assets/2018-06-01-arch-arm-xfce4-tigervnc/001-vnc-viewer.png 'VNC Viewer')
 
 [You can download VNCviewer from here!]
 
 The final result looks like that:
 
-![VNCviewer](./_assets/2018-06-01-arch-arm-xfce4-tigervnc/002-vnc-viewer.png "VNCviewer")
+![VNCviewer](./_assets/2018-06-01-arch-arm-xfce4-tigervnc/002-vnc-viewer.png 'VNCviewer')
 
 If you want know the packages installed on my Raspberry, [you can check this gist!]
 

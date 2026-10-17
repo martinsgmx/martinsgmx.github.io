@@ -1,13 +1,6 @@
 ---
-title: "Flashing OpenTX to FlySky TH9x with AVRDUDE"
+title: 'Flashing OpenTX to FlySky TH9x with AVRDUDE'
 pubDate: 2017-12-22 00:15:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Flashing OpenTX to FlySky TH9x
-    - - meta
-      - property: og:image
-        content: ./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/header.png
 ---
 
 ## DISCLAIMER
@@ -15,7 +8,7 @@ head:
 I don't take any responsibility about damage your control. Flash under your own risk! If you're following this guide step by step, your don't have any problem later. If your main board (th9x) bricked (It's very hard that happends), you don't need buy other one.
 Not, don't need sell your control by spare parts. TH9x main board is very generic and some little cheap, you can buy one on Banggood or AliExpress.
 
-![USBasp](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/000_usbasp_cable.jpg "USBasp")
+![USBasp](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/000_usbasp_cable.jpg 'USBasp')
 
 Before starts you need know something's...
 
@@ -30,7 +23,7 @@ First to all, we need open FlySky TH9x to access main board and connect the USBa
 
 I use a AVR cable with 10 pins to connect directly the main board with USBasp. I used some flux to weld easily.
 
-![AVR wiring](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/001_wiring.png "Wiring")
+![AVR wiring](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/001_wiring.png 'Wiring')
 
 > The first cable (that with red line) is the PIN ONE.
 
@@ -47,13 +40,13 @@ I use a AVR cable with 10 pins to connect directly the main board with USBasp. I
 |           9            | <-> |      MISO       |
 |           10           | <-> |     GROUND      |
 
-![Pinout](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/002_avr_pinout.png "Pinout")
+![Pinout](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/002_avr_pinout.png 'Pinout')
 
 You can use double sided tape to stick the cable and avoid desolded.
 
 After weld it and before screw it again, verify the screen doesn't move.
 
-![Screen](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/004_before_screw.png "Screen")
+![Screen](./_assets/2017-12-22-flashing-opentx-to-flysky-th9x-with-avrdude/004_before_screw.png 'Screen')
 
 Well, after complete this, you control is ready to AVRdude.
 
