@@ -1,13 +1,6 @@
 ---
-title: "Being a lazy programmer in the AI Agents era"
+title: 'Being a lazy programmer in the AI Agents era'
 pubDate: 2026-04-02 00:00:00 -0600
-head:
-    - - meta
-      - name: description
-        content: Being a lazy programmer in the AI Agents era
-    - - meta
-      - property: og:image
-        content: ./_assets/2026-04-02-lazy-programmer-agents/header.png
 ---
 
 # Being a lazy programmer

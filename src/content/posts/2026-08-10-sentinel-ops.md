@@ -2,13 +2,6 @@
 title: 'Sentinel Ops (MCP + ML)'
 pubDate: 2026-08-10 00:15:00 -0600
 aiAssisted: Partial
-head:
-  - - meta
-    - name: description
-      content: Sentinel Ops (MCP + ML)
-  - - meta
-    - property: og:image
-      content: ./_assets/2026-08-10-sentinel-ops-mcp/header.png
 ---
 
 > You can access to full code from: [martinsgmx/sentinel-ops.git]

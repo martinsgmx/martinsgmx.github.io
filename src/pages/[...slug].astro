@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from 'astro:content'
 import PostLayout from '@/layouts/PostLayout.astro'
 import { render } from 'astro:content'
+import { getCustomOgImage } from '@/utils/og-image'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
@@ -20,10 +21,12 @@ const { Content, remarkPluginFrontmatter } = await render(post)
 
 const readingTime = remarkPluginFrontmatter.readingTime
 const toc = remarkPluginFrontmatter.toc || []
+const ogImage = getCustomOgImage(post.id) ?? `/open-graph/${post.id}.png`
 ---
 
 <PostLayout
   {...post.data}
+  ogImage={ogImage}
   readingTime={readingTime}
   toc={toc}
   language={post.data.language}

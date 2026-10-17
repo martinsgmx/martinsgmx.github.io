@@ -3,13 +3,6 @@ title: 'Creando un kit multimedia de lanzamiento asistido por IA'
 pubDate: 2026-10-07 00:15:00 -0600
 aiAssisted: Partial
 language: Spanish
-head:
-  - - meta
-    - name: description
-      content: Creando un kit multimedia de lanzamiento asistido por IA
-  - - meta
-    - property: og:image
-      content: ./_assets/2026-10-07-kit-product-launch/header.png
 ---
 
 ## TL;DR
