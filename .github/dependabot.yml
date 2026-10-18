@@ -1,21 +1,21 @@
 version: 2
 updates:
   - package-ecosystem: npm
-    directory: "/"
+    directory: '/'
     schedule:
       interval: weekly
       day: monday
-      time: "06:00"
+      time: '06:00'
     open-pull-requests-limit: 10
     groups:
       dev-dependencies:
         patterns:
-          - "@eslint*"
-          - "@types*"
+          - '@eslint*'
+          - '@types*'
           - eslint*
           - prettier*
           - typescript*
-          - "typescript-eslint"
+          - 'typescript-eslint'
           - tsx
           - globals
         update-types:
@@ -23,7 +23,7 @@ updates:
           - patch
       astro:
         patterns:
-          - "@astrojs/*"
+          - '@astrojs/*'
           - astro
         update-types:
           - minor
