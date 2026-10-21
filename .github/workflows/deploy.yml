@@ -15,16 +15,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
-      - uses: pnpm/action-setup@v4
+          node-version: 24
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
         with:
-          version: 10
+          version: 12
           run_install: false
       - name: Get pnpm store directory
         shell: bash
@@ -32,7 +32,7 @@ jobs:
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_OUTPUT
         id: pnpm-cache
         continue-on-error: true
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         name: Setup pnpm cache
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH || '~/.local/share/pnpm/store' }}
@@ -43,10 +43,10 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
